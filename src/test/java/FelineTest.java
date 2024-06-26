@@ -20,6 +20,7 @@ public class FelineTest {
 
     @Test
     public void testGetFamily() {
+        Feline feline = new Feline();
         String family = feline.getFamily();
         Assertions.assertEquals("Кошачьи", family);
     }
