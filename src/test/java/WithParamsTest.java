@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Spy;
 
-public class TestWithParams {
+public class WithParamsTest {
 
     @Spy
     private Feline feline;
