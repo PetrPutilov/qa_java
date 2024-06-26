@@ -3,11 +3,11 @@ import com.example.Lion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.mockito.Spy;
+import org.mockito.Mock;
 
 public class WithParamsTest {
 
-    @Spy
+    @Mock
     private Feline feline;
 
     @ParameterizedTest
