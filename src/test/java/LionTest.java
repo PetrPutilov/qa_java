@@ -3,8 +3,8 @@ import com.example.Lion;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -12,12 +12,13 @@ import java.util.List;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
-    @Spy
+    @Mock
     private Feline feline;
 
     @Test
     public void testGetFood() throws Exception {
         Lion lion = new Lion(feline, "Самец");
+        Mockito.when(feline.getFood(Mockito.anyString())).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> lionsFood = lion.getFood();
         Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
         Assertions.assertEquals(List.of("Животные", "Птицы", "Рыба"), lionsFood);
@@ -31,8 +32,9 @@ public class LionTest {
     @Test
     public void testGetKittens() throws Exception {
         Lion lion = new Lion(feline, "Самец");
+        Mockito.when(feline.getKittens()).thenReturn(1);
         int kittensCount = lion.getKittens();
-        Mockito.verify(feline, Mockito.times(1)).getKittens(1);
+        Mockito.verify(feline, Mockito.times(1)).getKittens();
         Assertions.assertEquals(1, kittensCount);
     }
 
